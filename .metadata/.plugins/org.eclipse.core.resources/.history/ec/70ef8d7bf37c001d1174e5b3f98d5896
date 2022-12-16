@@ -43,6 +43,7 @@ package paqueteFrutas;
 	    private PantallaImagen pantallaGanador;
 	    private PantallaImagen pantallaEsperar;
 	    private PantallaPerdedor pantallaPerdedor;
+		
 
 	    public LogicaDelJuego(int anchoJuego, int largoJuego, int tiempoDeEsperaEntreActualizaciones, int vidas, ArrayList<FrutasGraficos> listaDeObjetos) {
 	        this.pantallaActual = PANTALLA_INICIO;
@@ -269,4 +270,5 @@ package paqueteFrutas;
 	            throw new RuntimeException(e1);
 	        }
 	    }
+	    
 	}
