@@ -12,16 +12,10 @@ import javax.imageio.ImageIO;
 
 public class Canasta extends ElementoBasico {
 
-
-	
-	
-
 	private BufferedImage img;
 
 	public Canasta(int posicionX, int posicionY, double velocidadX, double velocidadY, int ancho, int largo, Color color)  {
 		super(posicionX, posicionY, velocidadX, velocidadY, ancho, largo, color);
-
-
 		try {
 			String path = Paths.get(Canasta.class.getClassLoader().getResource("imagenes/canasta.png").toURI()).toString();
 			this.img = ImageIO.read(new File(path));
@@ -30,8 +24,8 @@ public class Canasta extends ElementoBasico {
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}
-
 	}
+	
 	public void dibujarse(Graphics graphics) {
 		try {
 			graphics.drawImage(img, getPosicionX(), getPosicionY(), this.getAncho(), this.getLargo(), null);
@@ -39,7 +33,6 @@ public class Canasta extends ElementoBasico {
 			throw new RuntimeException(e1);
 		}
 	} 
-    
     
     public void Ciclo() {
     	int x = this.getPosicionY();

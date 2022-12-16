@@ -1,0 +1,5 @@
+package paqueteFrutas;
+
+public interface Dibujable {
+
+}

@@ -1,36 +1,20 @@
 package paqueteFrutas;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 public class ClasePrincipal {
 	
-
-	
-	
-	
-	
-
     public static void main(String[] args) {
 
         // Propiedades del Juego
         int anchoVentana = 800;
         int largoVentana = 900;
         int tiempoDeEsperaEntreActualizaciones = 10;
-        int enemigosPorLinea = 10;
-        int filasDeEnemigos = 6;
         int vidas = 3;
-        ArrayList ArraydeObjetos = null;
+        ArrayList<FrutasGraficos> ArraydeObjetos = null;
        
-        
-      
-        
-        
-        
         // Activar aceleracion de graficos en 2 dimensiones
         System.setProperty("sun.java2d.opengl", "true");
 
@@ -45,11 +29,9 @@ public class ClasePrincipal {
 
         // Mostrar la ventana
         ventana.setVisible(true);
-
         
 		// Crear un "Jpanel" llamado Juego y agregarlo a la ventana
-        LogicaDelJuego juego = new LogicaDelJuego(anchoVentana, largoVentana, tiempoDeEsperaEntreActualizaciones, enemigosPorLinea,
-                filasDeEnemigos, vidas, ArraydeObjetos);
+        LogicaDelJuego juego = new LogicaDelJuego(anchoVentana, largoVentana, tiempoDeEsperaEntreActualizaciones, vidas, ArraydeObjetos);
 
         // Agregar a la ventana el JComponent (Juego hereda de JComponent)
         ventana.add(juego);
