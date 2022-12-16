@@ -1,7 +1,6 @@
 package paqueteFrutas;
 
 import java.awt.Color;
-import java.util.Iterator;
 
 public abstract class ElementoBasico implements Elemento {
 
@@ -42,14 +41,6 @@ public abstract class ElementoBasico implements Elemento {
     public void moverse() {
         posicionX = posicionX + velocidadX;
         posicionY = posicionY + velocidadY;
-    }
-
-    public void rebotarEnEjeX() {
-        velocidadX = -velocidadX;
-    }
-
-    public void rebotarEnEjeY() {
-        velocidadY = -velocidadY;
     }
 
     public double getVelocidadX() {
@@ -107,21 +98,10 @@ public abstract class ElementoBasico implements Elemento {
     public void setColor(Color color) {
         this.color = color;
     }
-
-	public void clear() {
-		// TODO Esbozo de método generado automáticamente
-		
-	}
-
-	public int size() {
-		// TODO Esbozo de método generado automáticamente
-		return 0;
-	}
 	
     public void Ciclo() {
     	int x = this.getPosicionY();
     	this.setPosicionY( x += 1);
     }
-
 
 }

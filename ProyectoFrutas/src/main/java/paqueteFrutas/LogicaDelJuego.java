@@ -1,7 +1,5 @@
 package paqueteFrutas;
 
-
-
 	import java.awt.Color;
 	import java.awt.Dimension;
 	import java.awt.Font;
@@ -45,10 +43,9 @@ package paqueteFrutas;
 	    private PantallaImagen pantallaGanador;
 	    private PantallaImagen pantallaEsperar;
 	    private PantallaPerdedor pantallaPerdedor;
-		public FrutasGraficos img;
+		
 
-	    public LogicaDelJuego(int anchoJuego, int largoJuego, int tiempoDeEsperaEntreActualizaciones, int enemigosPorLinea,
-	            int filasDeEnemigos, int vidas, ArrayList<FrutasGraficos> listaDeObjetos) {
+	    public LogicaDelJuego(int anchoJuego, int largoJuego, int tiempoDeEsperaEntreActualizaciones, int vidas, ArrayList<FrutasGraficos> listaDeObjetos) {
 	        this.pantallaActual = PANTALLA_INICIO;
 	        this.anchoJuego = anchoJuego;
 	        this.largoJuego = largoJuego;
@@ -74,11 +71,11 @@ package paqueteFrutas;
 	        this.pantallaGanador = new PantallaImagen(anchoJuego, largoJuego, "imagenes/ganaste.png");
 	        this.pantallaEsperar = new PantallaImagen(anchoJuego, largoJuego, "imagenes/esperar.png");
 	        cargarSonidos();
-	//        this.sonidos.repetirSonido("background");
+	        this.sonidos.repetirSonido("juego");
 	        inicializarJuego();
 	    }
-	    
-	    public static int Aleatorio(int Max, int Min) {
+
+		public static int Aleatorio(int Max, int Min) {
 	    	return (int) (Math.random() * (Max-Min));
 	    }
 	    
@@ -184,7 +181,6 @@ package paqueteFrutas;
 	        this.repaint();
 	    }
 
-
 	    private void dibujarInicioJuego(Graphics g) {
 	        portada.dibujarse(g);
 	    }
@@ -232,7 +228,7 @@ package paqueteFrutas;
 	        } else if (bicho.hayColision(paleta)) {
 	        	bicho.setPosicionY(0);
 	        	vidas.perderVida();
-	    //    	sonidos.tocarSonido("toc");
+	        	sonidos.tocarSonido("toc");
 
 	        	this.pantallaEsperar = new PantallaImagen(anchoJuego, largoJuego, "imagenes/esperar.png");
 	        	pantallaEsperar.dibujarse(getGraphics());
@@ -245,7 +241,7 @@ package paqueteFrutas;
 
 	        if (vidas.getVidas() == 0) {
 	            pantallaActual = PANTALLA_PERDEDOR;
-	             
+	            
 	        }
 
 	        if (puntaje.getPuntaje() == 15) {
@@ -267,8 +263,9 @@ package paqueteFrutas;
 	            sonidos = new Sonidos();
 	            sonidos.agregarSonido("toc", "sonidos/toc.wav");
 	            sonidos.agregarSonido("tin", "sonidos/tin.wav");
-	            sonidos.agregarSonido("muerte", "sonidos/muerte.wav");
-	            sonidos.agregarSonido("background", "sonidos/background.wav");
+	            sonidos.agregarSonido("perdedor", "sonidos/perdedor.wav");
+	            sonidos.agregarSonido("ganador", "sonidos/ganador.wav");
+	            sonidos.agregarSonido("juego", "sonidos/juego.wav");
 	        } catch (Exception e1) {
 	            throw new RuntimeException(e1);
 	        }

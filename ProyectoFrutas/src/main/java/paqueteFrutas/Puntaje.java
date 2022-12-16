@@ -38,11 +38,4 @@ public class Puntaje implements Dibujable {
         return puntaje;
     }
 
-	public int size() {
-		// TODO Esbozo de método generado automáticamente
-		return 0;
-	}
-
-
-
 }
